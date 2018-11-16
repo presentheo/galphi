@@ -1,0 +1,7 @@
+.card{
+  transform-style: preserve-3d;
+  transition: all 0.4s ease;
+}
+.card-flip{
+  transform: rotateY(180deg);
+}
