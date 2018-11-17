@@ -34,7 +34,17 @@ class CommentCreate extends Component {
       date: this.getNow(),
       content: this.state.content
     }
+    this.setState({
+      date: '',
+      content: ''
+    })
     this.props.onCreate(comment)
+  }
+
+  handleKeypress = (e) => {
+    if (e.charCode === 13) {
+      this.handleClick();
+    }
   }
 
   render() {
@@ -45,6 +55,7 @@ class CommentCreate extends Component {
           type='text'
           value={this.state.content}
           onChange={this.handleChange}
+          onKeyPress={this.handleKeypress}
         ></input>
         <button className='btn btn-primary' onClick={this.handleClick}>등록</button>
         
