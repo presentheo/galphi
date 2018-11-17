@@ -11,6 +11,18 @@ class CommentCreate extends Component {
     }
   }
 
+  getNow = () => {
+    const leadingZero = (num) => (num<10) ? '0'+num : num;
+    var now = new Date();
+    var year = now.getFullYear();
+    var month = leadingZero(now.getMonth()+1);
+    var date = leadingZero(now.getDate());
+    var hour = leadingZero(now.getHours());
+    var minute = leadingZero(now.getMinutes());
+
+    return year+'-'+month+'-'+date+' '+hour+':'+minute;
+  }
+
   handleChange = (e) => {
     this.setState({
       content: e.target.value
@@ -19,7 +31,7 @@ class CommentCreate extends Component {
 
   handleClick = () => {
     let comment = {
-      date: this.state.date,
+      date: this.getNow(),
       content: this.state.content
     }
     this.props.onCreate(comment)

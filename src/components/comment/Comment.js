@@ -9,15 +9,15 @@ class Comment extends Component {
     this.state = {
       commentData : [
         {
-          date: '2018-11-16',
+          date: '2018-11-16 12:00',
           content: '좀 별로에요'
         },
         {
-          date: '2018-11-16',
+          date: '2018-11-16 12:00',
           content: '좀 별로에요'
         },
         {
-          date: '2018-11-16',
+          date: '2018-11-16 12:00',
           content: '좀 별로에요'
         }
       ]
@@ -29,7 +29,6 @@ class Comment extends Component {
       commentData: [...this.state.commentData, comment]
     })
   }
-
 
   render() {
 
