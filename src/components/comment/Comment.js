@@ -8,30 +8,33 @@ class Comment extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedKey: -1,
       commentData : [
         {
           date: '2018-11-16 12:00',
-          content: '댓글을 등록할수 있습니다'
+          content: '댓글을 등록할 수 있습니다.'
         }
       ]
     }
   }
 
   handleCreate = (comment) => {
-    this.setState({
-      commentData: [...this.state.commentData, comment]
-    })
+    if (comment.content === '') {
+      alert('내용을 입력해주세요!')
+    } else {
+      this.setState({
+        commentData: [...this.state.commentData, comment]
+      })
+    }
   }
   handleRemove = (key) => {
-    const index = key;
-    this.setState({
-      commentData: [
-        ...this.state.commentData.splice(index-1, 1),
-        this.state.commentData[index],
-        ...this.state.commentData.splice(index+1, this.state.commentData.length)
-      ]
-    })
+    if (key !== null && key > -1){
+      this.setState({
+        commentData: [
+          ...this.state.commentData.slice(0, key),
+          ...this.state.commentData.slice(key+1, this.state.commentData.length)
+        ]
+      })
+    }
   }
 
   render() {
@@ -56,11 +59,22 @@ class Comment extends Component {
         )
       })
     }
+
+    const emptyCommentContainer = (
+      <div className='comment-container empty'>
+        <p>등록된 댓글이 없습니다. 새로운 댓글을 등록해주세요.</p>
+      </div>
+    )
+
+    const commentContainer = (
+      <ul className='comment-container row'>
+        {mapToComponent(this.state.commentData)}
+      </ul>
+    )
+
     return (
       <div>
-        <ul className='row'>
-          {mapToComponent(this.state.commentData)}
-        </ul>
+        {(this.state.commentData.length > 0) ? commentContainer : emptyCommentContainer}
         <CommentCreate onCreate={this.handleCreate}></CommentCreate>
       </div>
     );

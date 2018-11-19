@@ -13,14 +13,17 @@ class CommentCreate extends Component {
 
   getNow = () => {
     const leadingZero = (num) => (num<10) ? '0'+num : num;
-    var now = new Date();
-    var year = now.getFullYear();
-    var month = leadingZero(now.getMonth()+1);
-    var date = leadingZero(now.getDate());
-    var hour = leadingZero(now.getHours());
-    var minute = leadingZero(now.getMinutes());
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = leadingZero(now.getMonth()+1);
+    const date = leadingZero(now.getDate());
+    const hour = leadingZero(now.getHours());
+    const minute = leadingZero(now.getMinutes());
 
-    return year+'-'+month+'-'+date+' '+hour+':'+minute;
+    const whatDate = `${year}-${month}-${date}`;
+    const whatTime = `${hour}:${minute}`;
+
+    return `${whatDate} ${whatTime}`;
   }
 
   handleChange = (e) => {

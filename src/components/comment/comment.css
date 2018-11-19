@@ -5,6 +5,7 @@ ul, ul li{
   list-style: none;
 }
 .comment{
+  margin-top: 15px;
   padding: 15px;
   border: 1px solid rgba(0,0,0,0.04);
 }
@@ -13,4 +14,11 @@ ul, ul li{
   padding-bottom: 10px;
   margin-bottom: 10px;
   border-bottom: 1px solid #ddd;
+}
+.comment-container{
+  padding: 15px;
+}
+
+.comment-container.empty{
+  color: rgba(0,0,0,0.3);
 }
