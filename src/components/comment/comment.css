@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+ul, ul li{
+  text-decoration: none;
+  list-style: none;
+}
+.comment{
+  padding: 15px;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.comment-date{
+  font-size: 12px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}

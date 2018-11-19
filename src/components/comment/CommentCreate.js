@@ -7,7 +7,7 @@ class CommentCreate extends Component {
 
     this.state = {
       date: '',
-      content: '안녕하세요!'
+      content: ''
     }
   }
 
@@ -53,6 +53,7 @@ class CommentCreate extends Component {
         <input 
           className='form-control'
           type='text'
+          placeholder='내용을 입력해주세요'
           value={this.state.content}
           onChange={this.handleChange}
           onKeyPress={this.handleKeypress}
