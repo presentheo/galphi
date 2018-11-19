@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CommentCreate from './CommentCreate';
 import './comment.css';
+import Calendar from './Calendar';
 // import { update } from 'immutability-helper';
 
 class Comment extends Component {
@@ -8,11 +9,12 @@ class Comment extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      selectedDay: null,
       commentData : [
-        {
-          date: '2018-11-16 12:00',
-          content: '댓글을 등록할 수 있습니다.'
-        }
+        // {
+        //   date: '2018-11-16 12:00',
+        //   content: '댓글을 등록할 수 있습니다.'
+        // }
       ]
     }
   }
@@ -35,6 +37,12 @@ class Comment extends Component {
         ]
       })
     }
+  }
+
+  handleSelectDay = (day) => {
+    this.setState({
+      selectedDay: day
+    })
   }
 
   render() {
@@ -62,7 +70,7 @@ class Comment extends Component {
 
     const emptyCommentContainer = (
       <div className='comment-container empty'>
-        <p>등록된 댓글이 없습니다. 새로운 댓글을 등록해주세요.</p>
+        <p>이 날의 책갈피가 아직 없습니다. 새로운 책갈피를 만드시겠어요?</p>
       </div>
     )
 
@@ -74,6 +82,8 @@ class Comment extends Component {
 
     return (
       <div>
+        <p>{this.state.selectedDay}에 기록된 책갈피입니다.</p>
+        <Calendar onSelectDay={this.handleSelectDay}></Calendar>
         {(this.state.commentData.length > 0) ? commentContainer : emptyCommentContainer}
         <CommentCreate onCreate={this.handleCreate}></CommentCreate>
       </div>
