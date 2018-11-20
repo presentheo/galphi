@@ -3,9 +3,10 @@
 매일 책을 읽고 기록하는 습관을 들이기위한 독서 일기장 서비스입니다.
 직접 책을 등록하고, 읽은 분량과 간단한 코멘트를 적을 수 있습니다.
 
-### build
+### Stacks
 
-React.js 기반으로 제작되었습니다.
+React
+bootstrap4
 
 
 <!-- ## Available Scripts
