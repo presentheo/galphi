@@ -20,7 +20,7 @@ class CommentCreate extends Component {
     const hour = leadingZero(now.getHours());
     const minute = leadingZero(now.getMinutes());
 
-    const whatDate = `${year}-${month}-${date}`;
+    const whatDate = `${year}. ${month}. ${date}.`;
     const whatTime = `${hour}:${minute}`;
 
     return `${whatDate} ${whatTime}`;
@@ -69,3 +69,4 @@ class CommentCreate extends Component {
 }
 
 export default CommentCreate;
+

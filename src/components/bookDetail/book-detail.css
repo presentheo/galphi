@@ -1,0 +1,54 @@
+.book-info{
+  width: 280px;
+  position: fixed;
+  left: 0;
+  height: 100%;
+  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+.book-info:before{
+  content: '';
+  width: 110%;
+  height: 110%;
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  background-image: url(https://misc.ridibooks.com/cover/371001275/xxlarge);
+  background-size: cover;
+  filter: blur(10px);
+}
+
+.book-info-title{
+  position: relative;
+  margin-top: 60px;
+  padding: 0 20px;
+  text-align: right;
+}
+.book-info-title:after{
+  content: '';
+  width: 80%;
+  height: 1px;
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+  background-color: rgba(0,0,0,0.2);
+}
+.book-info-author{
+  text-align: right;
+  padding: 0 20px;
+  /* color: rgba(0, 0, 0, 0.5); */
+}
+
+.book-info-calendar{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* background-color: rgba(255, 255, 255, 0.6); */
+}
+
+/* 코멘트 영역 */
+.book-comment{
+  float: right;
+  width: calc(100vw - 280px);
+  padding: 0 20px;
+}

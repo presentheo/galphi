@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import Book from './components/book/Book';
-import Comment from './components/comment/Comment';
+// import Book from './components/book/Book';
+import BookDetail from './components/bookDetail/BookDetail'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Book></Book>
-        <Comment></Comment>
+        {/* <Book></Book> */}
+        <BookDetail></BookDetail>
       </div>
     );
   }

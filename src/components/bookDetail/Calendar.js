@@ -17,7 +17,6 @@ class Calendar extends Component {
       selectedDay: selected ? undefined : day
     })
     this.props.onSelectDay(day.toLocaleDateString());
-    console.log(day);
   }
 
   render(){
