@@ -3,7 +3,8 @@
   position: fixed;
   left: 0;
   height: 100%;
-  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.4);
+  /* border-right: 0.3px solid #000; */
+  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.2);
   overflow: hidden;
 }
 .book-info:before{
@@ -15,7 +16,7 @@
   top: -10px;
   background-image: url(https://misc.ridibooks.com/cover/371001275/xxlarge);
   background-size: cover;
-  filter: blur(10px);
+  filter: blur(50px);
 }
 
 .book-info-title{
@@ -29,14 +30,14 @@
   width: 80%;
   height: 1px;
   position: absolute;
-  bottom: -5px;
-  right: 0;
+  bottom: -8px;
+  right: 15px;
   background-color: rgba(0,0,0,0.2);
 }
 .book-info-author{
+  position: relative;
   text-align: right;
   padding: 0 20px;
-  /* color: rgba(0, 0, 0, 0.5); */
 }
 
 .book-info-calendar{
@@ -50,5 +51,7 @@
 .book-comment{
   float: right;
   width: calc(100vw - 280px);
+  height: 100vh;
   padding: 0 20px;
+  /* background-image: url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/ENwbI9D3xilj9k3k8/nature-old-paper-texture-or-background-video-animation_sacheeom__F0000.png); */
 }

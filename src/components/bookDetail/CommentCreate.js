@@ -61,8 +61,7 @@ class CommentCreate extends Component {
           onChange={this.handleChange}
           onKeyPress={this.handleKeypress}
         ></input>
-        <button className='btn btn-primary' onClick={this.handleClick}>등록</button>
-        
+        <button className='btn btn-primary' onClick={this.handleClick}>등록</button>        
       </div>
     );
   }
