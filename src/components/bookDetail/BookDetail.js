@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CommentList from './CommentList';
-import Calendar from './Calendar';
+import MyCalendar from './Calendar';
 import './book-detail.css';
 
 class BookDetail extends Component {
@@ -40,7 +40,8 @@ class BookDetail extends Component {
           <h3 className='book-info-title'>삼미 슈퍼스타즈의 마지막 팬클럽</h3>
           <p className='book-info-author'>박민규</p>
           <div className='book-info-calendar'>
-            <Calendar onSelectDay={this.handleSelectDay}></Calendar>
+            {/* <Calendar onSelectDay={this.handleSelectDay}></Calendar> */}
+            <MyCalendar></MyCalendar>
           </div>
         </div>
         <div className='book-comment'>
@@ -49,6 +50,7 @@ class BookDetail extends Component {
         
       </div>
     );
+
   }
 }
 
