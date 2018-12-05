@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CommentCreate from './CommentCreate';
 import Comment from './Comment';
+import CommentDate from './CommentDate';
 // import { update } from 'immutability-helper';
 
 class CommentList extends Component {
@@ -8,29 +9,9 @@ class CommentList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      commentData : [
-        // {
-        //   edittable: false,
-        //   content: 'good'
-        // },
-        // {
-        //   edittable: false,
-        //   content: 'bad'
-        // }
-      ]
+      commentData : []
     }
   }
-
-  // 새로운 코멘트 등록
-  // handleCreate = (comment) => {
-  //   if (comment.content === '') {
-  //     alert('내용을 입력해주세요!')
-  //   } else {
-  //     this.setState({
-  //       commentData: [...this.state.commentData, comment]
-  //     })
-  //   }
-  // }
 
   // 코멘트 삭제
   handleRemove = (key) => {
@@ -61,7 +42,8 @@ class CommentList extends Component {
   handleCreate = () => {
     this.setState({
       commentData: [
-        ...this.state.commentData, {content: '', edittable: true}
+        ...this.state.commentData, 
+        {content: '', edittable: true}
       ]
     })
   }
@@ -82,21 +64,23 @@ class CommentList extends Component {
       })
     }
 
-    const emptyCommentContainer = (
-      <div className='comment-container empty'>
-        <p>이 날의 책갈피가 아직 없습니다. 새로운 책갈피를 만드시겠어요?</p>
-      </div>
-    )
+    // const emptyCommentContainer = (
+    //   <div className='comment-container empty'>
+    //     <p>이 날의 책갈피가 아직 없습니다. 새로운 책갈피를 만드시겠어요?</p>
+    //   </div>
+    // )
 
-    const commentContainer = (
-      <ul className='comment-container row'>
-        {mapToComponent(this.state.commentData)}
-      </ul>
-    )
-    
     return (
       <div>
-        {(this.state.commentData.length > 0) ? commentContainer : emptyCommentContainer}
+        <CommentDate
+          date={this.props.date}
+          isExist={this.state.commentData.length > 0}
+        ></CommentDate>
+
+        <ul className='comment-container row'>
+          {mapToComponent(this.state.commentData)}
+        </ul>
+
         <CommentCreate 
           onCreate={this.handleCreate}
         ></CommentCreate>

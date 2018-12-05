@@ -29,7 +29,7 @@ class BookDetail extends Component {
     this.setState({
       selectedDay: day
     })
-    // console.log(day)
+    console.log(day)
     // this.handleFilter(day);
   }
 
@@ -44,8 +44,7 @@ class BookDetail extends Component {
           </div>
         </div>
         <div className='book-comment'>
-          <p>{this.state.selectedDay}에 기록된 책갈피입니다.</p>
-          <CommentList></CommentList>
+          <CommentList date={this.state.selectedDay}></CommentList>
         </div>
         
       </div>
