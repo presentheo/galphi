@@ -9,21 +9,28 @@ class CommentList extends Component {
     super(props);
     this.state = {
       commentData : [
-        {date: '2018. 11. 23.', content: 'good'}
+        // {
+        //   edittable: false,
+        //   content: 'good'
+        // },
+        // {
+        //   edittable: false,
+        //   content: 'bad'
+        // }
       ]
     }
   }
 
   // 새로운 코멘트 등록
-  handleCreate = (comment) => {
-    if (comment.content === '') {
-      alert('내용을 입력해주세요!')
-    } else {
-      this.setState({
-        commentData: [...this.state.commentData, comment]
-      })
-    }
-  }
+  // handleCreate = (comment) => {
+  //   if (comment.content === '') {
+  //     alert('내용을 입력해주세요!')
+  //   } else {
+  //     this.setState({
+  //       commentData: [...this.state.commentData, comment]
+  //     })
+  //   }
+  // }
 
   // 코멘트 삭제
   handleRemove = (key) => {
@@ -37,8 +44,26 @@ class CommentList extends Component {
     }
   }
 
-  handleSave = () => {
+  // 코멘트 수정하고 저장
+  handleSave = (key, content) => {
     console.log('saved!');
+    let text = content;
+    this.setState({
+      commentData: [
+        ...this.state.commentData.slice(0, key),
+        {content: text},
+        ...this.state.commentData.slice(key+1, this.state.commentData.length)
+      ]
+    })
+  }
+
+  // 새로운 코멘트 생성
+  handleCreate = () => {
+    this.setState({
+      commentData: [
+        ...this.state.commentData, {content: '', edittable: true}
+      ]
+    })
   }
 
   render() {
@@ -64,15 +89,17 @@ class CommentList extends Component {
     )
 
     const commentContainer = (
-      <ul className='comment-container'>
+      <ul className='comment-container row'>
         {mapToComponent(this.state.commentData)}
       </ul>
     )
-
+    
     return (
       <div>
         {(this.state.commentData.length > 0) ? commentContainer : emptyCommentContainer}
-        <CommentCreate onCreate={this.handleCreate}></CommentCreate>
+        <CommentCreate 
+          onCreate={this.handleCreate}
+        ></CommentCreate>
       </div>
     );
   }

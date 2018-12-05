@@ -40,11 +40,11 @@ class BookDetail extends Component {
           <h3 className='book-info-title'>삼미 슈퍼스타즈의 마지막 팬클럽</h3>
           <p className='book-info-author'>박민규</p>
           <div className='book-info-calendar'>
-            <p>{this.state.selectedDay}에 기록된 책갈피입니다.</p>
             <Calendar onSelectDay={this.handleSelectDay}></Calendar>
           </div>
         </div>
         <div className='book-comment'>
+          <p>{this.state.selectedDay}에 기록된 책갈피입니다.</p>
           <CommentList></CommentList>
         </div>
         
