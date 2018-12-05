@@ -79,11 +79,11 @@ class CommentList extends Component {
 
         <ul className='comment-container row'>
           {mapToComponent(this.state.commentData)}
+          <CommentCreate 
+            onCreate={this.handleCreate}
+          ></CommentCreate>
         </ul>
 
-        <CommentCreate 
-          onCreate={this.handleCreate}
-        ></CommentCreate>
       </div>
     );
   }

@@ -26,10 +26,6 @@ ul, ul li{
   white-space: pre-wrap;
 }
 
-.comment-create {
-  margin: 0 15px;
-}
-
 .comment textarea {
   resize: none;
   overflow: hidden;
