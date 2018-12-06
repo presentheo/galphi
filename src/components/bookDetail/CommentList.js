@@ -54,6 +54,7 @@ class CommentList extends Component {
       return data.map((el, i) => {
         return (
           <Comment
+            bookId={this.props.bookId}
             comment={el}
             key={i}
             id={i}

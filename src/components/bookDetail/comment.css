@@ -33,6 +33,7 @@ ul, ul li{
   margin: 15px 0;
   border: 0;
   background-color: rgba(0,0,0,0.04);
+  transition: all 0.2s ease;
 }
 
 .comment-date {

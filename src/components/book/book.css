@@ -1,7 +1,12 @@
 .card{
   transform-style: preserve-3d;
   transition: all 0.4s ease;
+  cursor: pointer;
 }
 .card-flip{
   transform: rotateY(180deg);
+}
+
+.book-author{
+  color: rgba(0,0,0,0.5);  
 }

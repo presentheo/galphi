@@ -36,17 +36,16 @@ class BookDetail extends Component {
   render() {
     return (
       <div>
-        <a className='btn btn-danger' href='/'>메인으로 이동</a>
         <div className='book-info'>
-          <h3 className='book-info-title'>삼미 슈퍼스타즈의 마지막 팬클럽</h3>
-          <p className='book-info-author'>박민규</p>
+          <h3 className='book-info-title'>{this.props.book.title}</h3>
+          <p className='book-info-author'>{this.props.book.author}</p>
           <div className='book-info-calendar'>
             {/* <Calendar onSelectDay={this.handleSelectDay}></Calendar> */}
             <MyCalendar></MyCalendar>
           </div>
         </div>
         <div className='book-comment'>
-          <CommentList date={this.state.selectedDay}></CommentList>
+          <CommentList bookId={this.props.book.id} date={this.state.selectedDay}></CommentList>
         </div>
         
       </div>

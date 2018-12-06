@@ -15,13 +15,25 @@ class Book extends Component {
       isActive: !this.state.isActive
     })
   }
+  handleClick = () => {
+    this.props.onClick(this.props.id);
+  }
+
+  onClick = () => {
+    // this.handleActive();
+    this.handleClick();
+  }
 
   render() {
     return (
       <li className='col col-sm-3'>
-        <div className={this.state.isActive ? 'card card-flip' : 'card'} onClick={this.handleActive}>
+        <div 
+          className={this.state.isActive ? 'card card-flip' : 'card'} 
+          onClick={this.onClick}
+        >
           <div className='card-body'>
-            <p className='card-title'>{this.props.title}</p>
+            <h3 className='book-title'>{this.props.title}</h3>
+            <p className='book-author'>{this.props.author}</p>
           </div>
         </div>
       </li>
