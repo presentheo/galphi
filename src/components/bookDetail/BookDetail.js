@@ -36,6 +36,7 @@ class BookDetail extends Component {
   render() {
     return (
       <div>
+        <a className='btn btn-danger' href='/'>메인으로 이동</a>
         <div className='book-info'>
           <h3 className='book-info-title'>삼미 슈퍼스타즈의 마지막 팬클럽</h3>
           <p className='book-info-author'>박민규</p>
