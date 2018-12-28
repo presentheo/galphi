@@ -57,7 +57,7 @@ class CommentList extends Component {
             bookId={this.props.bookId}
             comment={el}
             key={i}
-            id={i}
+            commentId={i}
             onRemove={this.handleRemove}
             onSave={this.handleSave}
           ></Comment>

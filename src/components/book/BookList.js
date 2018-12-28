@@ -11,10 +11,10 @@ class BookList extends Component {
     this.state = {
       selectedKey: 0,
       bookData : [
-        {title: '위대한 개츠비', author: 'F. 스콧 피츠제럴드', star: 5},
-        {title: '설국', author: '가와바타 야스나리', star: 5},
-        {title: '동물농장', author: '조지 오웰', star: 5},
-        {title: '내게 무해한 사람',author: '최은영',  star: 5}
+        {title: '위대한 개츠비', author: 'F. 스콧 피츠제럴드'},
+        {title: '설국', author: '가와바타 야스나리'},
+        {title: '동물농장', author: '조지 오웰'},
+        {title: '내게 무해한 사람', author: '최은영'}
       ]
     }
   }
@@ -35,7 +35,6 @@ class BookList extends Component {
             key={i}
             title={el.title}
             author={el.author}
-            star={el.star}
             onClick={this.handleClick}
           ></Book>
           )   

@@ -25,7 +25,7 @@ class Comment extends Component {
     if (this.state.content.length < 1) {
       alert('한 글자 이상 입력해주세요 :)')
     } else {
-      this.props.onSave(this.props.id, this.state.content);
+      this.props.onSave(this.props.commentId, this.state.content);
       this.setState({
         edittable: false
       })
@@ -65,7 +65,7 @@ class Comment extends Component {
         <div className='comment'>
           {this.state.edittable ? editor : viewer}
           <div className='comment-menu clearfix'>
-            <button className='close' onClick={() => {this.props.onRemove(this.props.id)}}>
+            <button className='close' onClick={() => {this.props.onRemove(this.props.commentId)}}>
               <span>&times;</span>
             </button>
           </div>

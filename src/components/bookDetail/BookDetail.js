@@ -35,7 +35,7 @@ class BookDetail extends Component {
 
   render() {
     return (
-      <div>
+      <div className='book-detail'>
         <div className='book-info'>
           <h3 className='book-info-title'>{this.props.book.title}</h3>
           <p className='book-info-author'>{this.props.book.author}</p>
@@ -45,7 +45,11 @@ class BookDetail extends Component {
           </div>
         </div>
         <div className='book-comment'>
-          <CommentList bookId={this.props.book.id} date={this.state.selectedDay}></CommentList>
+          <CommentList 
+            bookId={this.props.book.id} 
+            date={this.state.selectedDay}
+            commentData={this.props.commentData}
+          ></CommentList>
         </div>
         
       </div>
