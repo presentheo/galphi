@@ -28,13 +28,13 @@ class BookList extends Component {
 
   render() {
     const mapToComponent = (data) => {
-      return data.map((el, i) => {
+      return data.map((book, index) => {
         return (
           <Book
-            id={i}
-            key={i}
-            title={el.title}
-            author={el.author}
+            id={index}
+            key={index}
+            title={book.title}
+            author={book.author}
             onClick={this.handleClick}
           ></Book>
           )   

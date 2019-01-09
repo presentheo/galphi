@@ -22,4 +22,3 @@ class CommentCreate extends Component {
 }
 
 export default CommentCreate;
-

@@ -6,7 +6,10 @@ class MyCalendar extends Component {
 
   render(){
     return (
-      <Calendar></Calendar>
+      <Calendar 
+        showToday={false}
+        showDateInput={false}
+        onSelect={(date) => {this.props.onSelectDay(date)}}></Calendar>
     );
   }
   

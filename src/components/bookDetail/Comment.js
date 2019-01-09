@@ -56,7 +56,8 @@ class Comment extends Component {
           autoFocus></textarea>
         <button 
           className='btn btn-block btn-dark'
-          onClick={this.handleSave}>저장</button>
+          onClick={this.handleSave}
+          >저장</button>
       </div>
     )
 

@@ -11,6 +11,12 @@ class BookDetail extends Component {
     }
   }
 
+  componentDidMount(){
+    this.setState({
+      selectedDay: JSON.stringify(new Date()).substr(1, 10)
+    })
+  }
+
   // 필터링
   // handleFilter = (day) => {
   //   const filteredCommentData = (
@@ -26,11 +32,12 @@ class BookDetail extends Component {
 
   // 날짜 선택
   handleSelectDay = (day) => {
+    // let year = day.getFullYear();
+    let str = JSON.stringify(day).substr(1, 10);
     this.setState({
-      selectedDay: day
+      selectedDay: str
     })
-    console.log(day)
-    // this.handleFilter(day);
+    console.log(str)
   }
 
   render() {
@@ -40,8 +47,8 @@ class BookDetail extends Component {
           <h3 className='book-info-title'>{this.props.book.title}</h3>
           <p className='book-info-author'>{this.props.book.author}</p>
           <div className='book-info-calendar'>
-            {/* <Calendar onSelectDay={this.handleSelectDay}></Calendar> */}
-            <MyCalendar></MyCalendar>
+            <MyCalendar
+              onSelectDay={this.handleSelectDay}></MyCalendar>
           </div>
         </div>
         <div className='book-comment'>
