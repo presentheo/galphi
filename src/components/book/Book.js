@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 class Book extends Component {
 
@@ -26,16 +27,15 @@ class Book extends Component {
 
   render() {
     return (
-      <li className='col col-sm-3'>
-        <div 
-          className={this.state.isActive ? 'card card-flip' : 'card'} 
-          onClick={this.onClick}
-        >
-          <div className='card-body'>
-            <h3 className='book-title'>{this.props.title}</h3>
-            <p className='book-author'>{this.props.author}</p>
+      <li className='book-wrapper'>
+        <Link to={`/detail/${this.props.id}`}>
+          <div className='book card'>
+            <div className='card-body'>
+              <h3 className='book-title'>{this.props.title}</h3>
+              <p className='book-author'>{this.props.author}</p>
+            </div>
           </div>
-        </div>
+        </Link>
       </li>
     );
   }

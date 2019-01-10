@@ -47,6 +47,7 @@
 
 .book-info-calendar{
   position: absolute;
+  left: 10px;
   bottom: 0;
   width: 100%;
   /* background-color: rgba(255, 255, 255, 0.6); */

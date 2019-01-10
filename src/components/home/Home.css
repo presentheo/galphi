@@ -1,2 +1,28 @@
 @charset "UTF-8";
 
+.main-visual-wrapper{
+  width: 40%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 2px 0px 4px rgba(0,0,0,0.2);
+  z-index: 1;
+  background-color: #fff;
+}
+
+.main-visual {
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%);
+  text-align: right;
+}
+
+.main-visual h1 {
+  font-size: 70px;
+}
+.main-visual p {
+  color: #aaa;
+  margin-right: 10px;
+}
