@@ -3,19 +3,6 @@ import Book from './Book';
 import './book.css';
 
 class BookList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedKey: 0
-    }
-  }
-
-  handleClick = (key) => {
-    this.setState({
-      selectedKey: key
-    })
-    console.log(key)
-  }
 
   render() {
     const mapToComponent = (data) => {
@@ -26,7 +13,7 @@ class BookList extends Component {
             key={index}
             title={book.title}
             author={book.author}
-            onClick={this.handleClick}
+            onClickBook={this.props.onClickBook}
           ></Book>
           )   
         }
@@ -34,10 +21,18 @@ class BookList extends Component {
     }
     
     return (
-      <div className='book-list-wrapper'>
-        <ul className='book-list'>
-          {mapToComponent(this.props.bookData)}
-        </ul>
+      <div>
+        <div className='main-visual-wrapper'>
+          <div className='main-visual'>
+            <h1 className='main-logo'>갈피;</h1>
+            <p>매일매일 독서 일기장</p>
+          </div>
+        </div>
+        <div className='book-list-wrapper'>
+          <ul className='book-list'>
+            {mapToComponent(this.props.bookData)}
+          </ul>
+        </div>
       </div>
     );
   }

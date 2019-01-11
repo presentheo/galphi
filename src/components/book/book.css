@@ -1,7 +1,6 @@
 .book-list-wrapper {
   position: absolute;
   width: calc(60% + 20px);
-  height: 100%;
   right: 0;
   top: 0;
   background-color: #fdfdfd;

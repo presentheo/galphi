@@ -4,6 +4,7 @@ import MyCalendar from './Calendar';
 import './book-detail.css';
 
 class BookDetail extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -17,19 +18,6 @@ class BookDetail extends Component {
     })
   }
 
-  // 필터링
-  // handleFilter = (day) => {
-  //   const filteredCommentData = (
-  //     this.state.commentData.filter((e) => {
-  //       return e.date.indexOf(day) !== -1
-  //     })
-  //   )
-  //   console.log(filteredCommentData);
-  //   this.setState({
-  //     commentData: filteredCommentData
-  //   });
-  // }
-
   // 날짜 선택
   handleSelectDay = (day) => {
     // let year = day.getFullYear();
@@ -40,12 +28,22 @@ class BookDetail extends Component {
     console.log(str)
   }
 
+  // 코멘트 생성
+  // handleCreate = () => {
+  //   this.setState({
+  //     commentData: [
+  //       ...this.state.commentData,
+  //       {content: '', edittable: true}
+  //     ]
+  //   })
+  // }
+
   render() {
     return (
       <div className='book-detail'>
         <div className='book-info'>
-          <h3 className='book-info-title'>{this.props.book.title}</h3>
-          <p className='book-info-author'>{this.props.book.author}</p>
+          <h3 className='book-info-title'>{this.props.bookData.title}</h3>
+          <p className='book-info-author'>{this.props.bookData.author}</p>
           <div className='book-info-calendar'>
             <MyCalendar
               onSelectDay={this.handleSelectDay}></MyCalendar>
@@ -53,9 +51,10 @@ class BookDetail extends Component {
         </div>
         <div className='book-comment'>
           <CommentList 
-            bookId={this.props.book.id} 
             date={this.state.selectedDay}
-            commentData={this.props.commentData}
+            commentData={this.props.bookData.commentData}
+            onCreateComment={this.props.onCreateComment}
+            onRemoveComment={this.props.onRemoveComment}
           ></CommentList>
         </div>
         

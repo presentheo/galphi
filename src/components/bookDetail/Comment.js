@@ -66,7 +66,7 @@ class Comment extends Component {
         <div className='comment'>
           {this.state.edittable ? editor : viewer}
           <div className='comment-menu clearfix'>
-            <button className='close' onClick={() => {this.props.onRemove(this.props.commentId)}}>
+            <button className='close' onClick={this.props.onRemoveComment}>
               <span>&times;</span>
             </button>
           </div>
