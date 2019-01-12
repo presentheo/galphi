@@ -3,7 +3,7 @@
   width: calc(60% + 20px);
   right: 0;
   top: 0;
-  background-color: #fdfdfd;
+  background-color: #007bff;
 }
 
 .book-list {
@@ -22,6 +22,7 @@
   padding-left: 20px;
   margin-top: 30px;
   transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 .book:hover {
   transform: translateX(10px);

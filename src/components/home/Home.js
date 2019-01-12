@@ -16,13 +16,23 @@ class Home extends Component {
           commentData: []
         },
         {
-          title: '설국', 
-          author: '가와바타 야스나리', 
+          title: '그리스인 조르바', 
+          author: '니코스 카잔자키스', 
           commentData: []
         },
         {
           title: '동물농장', 
           author: '조지 오웰', 
+          commentData: []
+        },
+        {
+          title: '비행운', 
+          author: '김애란', 
+          commentData: []
+        },
+        {
+          title: '삼미 슈퍼스타즈의 마지막 팬클럽', 
+          author: '박민규', 
           commentData: []
         },
         {
