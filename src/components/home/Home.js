@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import BookList from '../book/BookList';
 import BookDetail from '../bookDetail/BookDetail'
 import './Home.css';
@@ -111,25 +111,26 @@ class Home extends Component {
   render() {
 
     return (
-      <Router>
-        <div>
-          <Route 
-            exact path='/' 
-            render={
-              () => {return <BookList 
-                bookData={this.state.bookData}
-                onClickBook={this.handleClickBook}/>}}/>
-          <Route 
-            exact path='/detail/:id' 
-            render={
-              () => {return <BookDetail 
-                bookData={this.state.bookData[this.state.selectedBookIndex]}
-                onCreateComment={this.handleCreateComment}
-                onRemoveComment={this.handleRemoveComment}
-                onEditComment={this.handleEditComment}
-                onSaveComment={this.handleSaveComment}/>}}/>
-        </div>
-      </Router>
+      <div>
+        {/* <BookList 
+              bookData={this.state.bookData}
+              onClickBook={this.handleClickBook}/> */}
+        <Route 
+          exact path='/' 
+          render={
+            () => {return <BookList 
+              bookData={this.state.bookData}
+              onClickBook={this.handleClickBook}/>}}/>
+        <Route 
+          path='/detail/:id' 
+          render={
+            () => {return <BookDetail 
+              bookData={this.state.bookData[this.state.selectedBookIndex]}
+              onCreateComment={this.handleCreateComment}
+              onRemoveComment={this.handleRemoveComment}
+              onEditComment={this.handleEditComment}
+              onSaveComment={this.handleSaveComment}/>}}/>
+      </div>
     );
   }
 }
