@@ -48,7 +48,7 @@ class Home extends Component {
         {
           title: bookData[bookIndex].title,
           author: bookData[bookIndex].author,
-          commentData: func()
+          commentData: func(bookData[bookIndex].commentData)
         },
         ...bookData.slice(bookIndex+1, bookData.length)
       ]
@@ -57,56 +57,44 @@ class Home extends Component {
   
   // 댓글 추가
   handleCreateComment = () => {
-    let bookData = this.state.bookData;
-    let bookIndex = this.state.selectedBookIndex;
-    let commentData = bookData[bookIndex].commentData;
-    this.commentHandler(() => {
+    this.commentHandler((commentData) => {
       return [
         ...commentData,
         {content: '', edittable: true}
       ]
-    }, bookData, bookIndex)
+    }, this.state.bookData, this.state.selectedBookIndex)
   }
   
   // 댓글 삭제
   handleRemoveComment = (commentIndex) => {
-    let bookData = this.state.bookData;
-    let bookIndex = this.state.selectedBookIndex;
-    let commentData = bookData[bookIndex].commentData;
-    this.commentHandler(() => {
+    this.commentHandler((commentData) => {
       return [
         ...commentData.slice(0, commentIndex),
         ...commentData.slice(commentIndex+1, commentData.length)
       ]
-    }, bookData, bookIndex)
+    }, this.state.bookData, this.state.selectedBookIndex)
   }
   
   // 댓글 수정
   handleEditComment = (commentIndex) => {
-    let bookData = this.state.bookData;
-    let bookIndex = this.state.selectedBookIndex;
-    let commentData = bookData[bookIndex].commentData;
-    this.commentHandler(() => {
+    this.commentHandler((commentData) => {
       return [
         ...commentData.slice(0, commentIndex),
         {content: commentData[commentIndex].content, edittable: true},
         ...commentData.slice(commentIndex+1, commentData.length)
       ]
-    }, bookData, bookIndex)
+    }, this.state.bookData, this.state.selectedBookIndex)
   }
   
   // 댓글 저장
   handleSaveComment = (commentIndex, comment) => {
-    let bookData = this.state.bookData;
-    let bookIndex = this.state.selectedBookIndex;
-    let commentData = bookData[bookIndex].commentData;
-    this.commentHandler(() => {
+    this.commentHandler((commentData) => {
       return [
         ...commentData.slice(0, commentIndex),
         comment,
         ...commentData.slice(commentIndex+1, commentData.length)
       ]
-    }, bookData, bookIndex)
+    }, this.state.bookData, this.state.selectedBookIndex)
     console.log('saved!');
   }
 
