@@ -28,16 +28,6 @@ class BookDetail extends Component {
     console.log(str)
   }
 
-  // 코멘트 생성
-  // handleCreate = () => {
-  //   this.setState({
-  //     commentData: [
-  //       ...this.state.commentData,
-  //       {content: '', edittable: true}
-  //     ]
-  //   })
-  // }
-
   render() {
     return (
       <div className='book-detail'>
@@ -55,6 +45,8 @@ class BookDetail extends Component {
             commentData={this.props.bookData.commentData}
             onCreateComment={this.props.onCreateComment}
             onRemoveComment={this.props.onRemoveComment}
+            onEditComment={this.props.onEditComment}
+            onSaveComment={this.props.onSaveComment}
           ></CommentList>
         </div>
         

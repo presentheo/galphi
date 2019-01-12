@@ -40,39 +40,74 @@ class Home extends Component {
     })
   }
 
-  // 댓글  함수
-  commentHandler = (func) => {
+  // 댓글 handler 함수
+  commentHandler = (func, bookData, bookIndex) => {
     this.setState({
       bookData: [
-        ...this.state.bookData.slice(0, this.state.selectedBookIndex),
+        ...bookData.slice(0, bookIndex),
         {
-          title: this.state.bookData[this.state.selectedBookIndex].title,
-          author: this.state.bookData[this.state.selectedBookIndex].author,
+          title: bookData[bookIndex].title,
+          author: bookData[bookIndex].author,
           commentData: func()
         },
-        ...this.state.bookData.slice(this.state.selectedBookIndex+1, this.state.bookData.length)
+        ...bookData.slice(bookIndex+1, bookData.length)
       ]
     })
   }
-
+  
+  // 댓글 추가
   handleCreateComment = () => {
+    let bookData = this.state.bookData;
+    let bookIndex = this.state.selectedBookIndex;
+    let commentData = bookData[bookIndex].commentData;
     this.commentHandler(() => {
-        return [
-          ...this.state.bookData[this.state.selectedBookIndex].commentData,
-          {content: '', edittable: true}
-        ]
-      }
-    )
-  }
-
-  handleRemoveComment = (index) => {
-    this.commentHandler(() => {
-      let arr = this.state.bookData[this.state.selectedBookIndex].commentData;
       return [
-        ...arr.slice(0, index),
-        ...arr.slice(index+1, arr.length)
+        ...commentData,
+        {content: '', edittable: true}
       ]
-    })
+    }, bookData, bookIndex)
+  }
+  
+  // 댓글 삭제
+  handleRemoveComment = (commentIndex) => {
+    let bookData = this.state.bookData;
+    let bookIndex = this.state.selectedBookIndex;
+    let commentData = bookData[bookIndex].commentData;
+    this.commentHandler(() => {
+      return [
+        ...commentData.slice(0, commentIndex),
+        ...commentData.slice(commentIndex+1, commentData.length)
+      ]
+    }, bookData, bookIndex)
+  }
+  
+  // 댓글 수정
+  handleEditComment = (commentIndex) => {
+    let bookData = this.state.bookData;
+    let bookIndex = this.state.selectedBookIndex;
+    let commentData = bookData[bookIndex].commentData;
+    this.commentHandler(() => {
+      return [
+        ...commentData.slice(0, commentIndex),
+        {content: commentData[commentIndex].content, edittable: true},
+        ...commentData.slice(commentIndex+1, commentData.length)
+      ]
+    }, bookData, bookIndex)
+  }
+  
+  // 댓글 저장
+  handleSaveComment = (commentIndex, comment) => {
+    let bookData = this.state.bookData;
+    let bookIndex = this.state.selectedBookIndex;
+    let commentData = bookData[bookIndex].commentData;
+    this.commentHandler(() => {
+      return [
+        ...commentData.slice(0, commentIndex),
+        comment,
+        ...commentData.slice(commentIndex+1, commentData.length)
+      ]
+    }, bookData, bookIndex)
+    console.log('saved!');
   }
 
   render() {
@@ -92,7 +127,9 @@ class Home extends Component {
               () => {return <BookDetail 
                 bookData={this.state.bookData[this.state.selectedBookIndex]}
                 onCreateComment={this.handleCreateComment}
-                onRemoveComment={this.handleRemoveComment}/>}}/>
+                onRemoveComment={this.handleRemoveComment}
+                onEditComment={this.handleEditComment}
+                onSaveComment={this.handleSaveComment}/>}}/>
         </div>
       </Router>
     );

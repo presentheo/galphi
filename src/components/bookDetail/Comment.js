@@ -8,14 +8,12 @@ class Comment extends Component {
   constructor(props){
     super(props);
 
-    this.state = this.props.comment;
+    this.state = {
+      content: this.props.comment.content,
+      edittable: this.props.comment.edittable
+    };
   }
 
-  handleClick = () => {
-    this.setState({
-      edittable: true
-    })
-  }
   handleChange = (e) => {
     this.setState({
       content: e.target.value
@@ -25,10 +23,10 @@ class Comment extends Component {
     if (this.state.content.length < 1) {
       alert('한 글자 이상 입력해주세요 :)')
     } else {
-      this.props.onSave(this.props.commentId, this.state.content);
-      this.setState({
+      this.props.onSaveComment({
+        content: this.state.content,
         edittable: false
-      })
+      });
     }
   }
 
@@ -41,8 +39,7 @@ class Comment extends Component {
 
     const viewer = (
       <div className='comment-content'>
-        <p 
-          onClick={this.handleClick}>{this.props.comment.content}</p>
+        <p onClick={this.props.onEditComment}>{this.props.comment.content}</p>
       </div>
     )
     const editor = (
@@ -64,7 +61,7 @@ class Comment extends Component {
     return (
       <li className='col-sm-4'>
         <div className='comment'>
-          {this.state.edittable ? editor : viewer}
+          {this.props.comment.edittable ? editor : viewer}
           <div className='comment-menu clearfix'>
             <button className='close' onClick={this.props.onRemoveComment}>
               <span>&times;</span>
