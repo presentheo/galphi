@@ -4,6 +4,8 @@
 날짜별로 간단한 코멘트를 적고 수정, 삭제할 수 있습니다.<br>
 (현재 날짜별 필터링 기능 구현 중입니다)
 
+![](screenshots/screenshot1.png)
+
 ### Stacks
 
 React.js<br>
