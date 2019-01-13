@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import BookList from '../book/BookList';
 import BookDetail from '../bookDetail/BookDetail'
-import './Home.css';
 
 class Home extends Component {
   constructor(props) {

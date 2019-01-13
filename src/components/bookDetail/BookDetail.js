@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import CommentList from './CommentList';
 import MyCalendar from './Calendar';
-import './book-detail.css';
 
 class BookDetail extends Component {
 

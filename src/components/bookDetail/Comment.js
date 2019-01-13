@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './comment.css';
 
 import {autoGrow} from '../../util';
 
